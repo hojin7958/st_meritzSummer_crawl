@@ -7,8 +7,7 @@ import datetime
 
 ## 기초
 
-st.set_page_config(layout='wide', initial_sidebar_state='expanded')
-
+st.set_page_config(page_title="메리츠 매니저 Summer Event 대시보드",page_icon="📊",layout='wide', initial_sidebar_state='expanded')
 
 with open('style.css') as f:
     st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
@@ -434,7 +433,7 @@ df_chart_base2['순증률'] = df_chart_base2['순증률']*100
 
 
 
-def find_topBottom(chart_range):
+def find_topBottom2(chart_range):
     if 순증순위-chart_range<0:
         chart_start, chart_end = 0, chart_range-1
     else:
@@ -443,26 +442,24 @@ def find_topBottom(chart_range):
 
 
 
-chart_start, chart_end = find_topBottom(chart_range)
+chart_start, chart_end = find_topBottom2(chart_range)
 
 #표시갯수에 따라서 그릴 차트를 정리함
 df_chart2 = df_chart_base2.iloc[chart_start:chart_end].copy()
 
 
-chart_max = df_chart2['순증률'].max()
-chart_min = df_chart2[df_chart2['순증률']>2]['순증률'].min()
+chart_max2 = df_chart2['순증률'].max()
+chart_min2 = df_chart2['순증률'].min()
 
 
 highlighted_bar = df_chart2[df_chart2['사번']==조건_매니저사번].매니저명.values[0]
 highlighted_bar_지점 = df_chart2[df_chart2['지점']==조건_지점명].매니저명.values.tolist()
 
-
-
 fig = px.bar(df_chart2,
              x='매니저명',
              y = '순증률',
              template = 'simple_white',
-             range_y =[chart_min,chart_max]
+             range_y =[chart_min2,chart_max2]
             )
 
 

@@ -286,7 +286,7 @@ def return_gr_rank(타겟목표):
 구간 = return_progress_gubun(조건_타겟목표)
 profile = 조건_지점명 + " | " + 조건_매니저명  + " | " + "시상구간 : "+ 구간
 
-st.markdown(f'### Meritz Summer Event 진행사항 {close_date}')
+st.markdown(f'### Meritz Summer Event 진행사항')
 st.markdown(f'{profile}')
 
 st.markdown("---")

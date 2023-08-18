@@ -19,9 +19,9 @@ with open('style.css') as f:
 
 hide_streamlit_style = """
             <style>
-            #MainMenu {visibility: hidden;}
-            [data-testid="collapsedControl"] {
-                display: none
+            MainMenu {visibility: hidden;}
+            # [data-testid="collapsedControl"] {
+            #     display: none
             }
             footer {visibility: hidden;}
              a:link {
@@ -49,6 +49,7 @@ hide_streamlit_style = """
 
             </style>
             """
+
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 

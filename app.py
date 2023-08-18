@@ -184,7 +184,7 @@ st.sidebar.subheader('Meritz Summer Event')
 
 
 with st.sidebar:
-    close_date = str(20230801)
+    # close_date = str(20230801)
     st.markdown("---")
     st.write("데이터업데이트")
     st.write(find_excelfile_mod_date())

@@ -120,6 +120,16 @@ df_순증_700 = read_df_gr_700()
 
 
 
+@st.cache_data
+def read_cell_value():
+    wb = openpyxl.load_workbook(file_name,read_only=True)
+    sb = wb['SM,AM 시상']
+    return str(sb['a3'].value)
+close_date = read_cell_value()
+
+
+
+
 df.rename(columns = {'타겟\n목표' : '타겟목표'}, inplace = True)
 df.rename(columns = {'매핑\n실적' : '매핑실적'}, inplace = True)
 df.rename(columns = {' 사번' : '사번'}, inplace = True)
@@ -209,12 +219,6 @@ with st.sidebar:
                 file_details = {"FileName":datafile.name,"FileType":datafile.type}
                 save_uploadedfile(datafile)
 
-                @st.cache_data
-                def read_cell_value():
-                    wb = openpyxl.load_workbook(file_name,read_only=True)
-                    sb = wb['SM,AM 시상']
-                    return str(sb['a3'].value)
-                close_date = read_cell_value()
 
 
     st.markdown("---")
@@ -286,7 +290,7 @@ def return_gr_rank(타겟목표):
 구간 = return_progress_gubun(조건_타겟목표)
 profile = 조건_지점명 + " | " + 조건_매니저명  + " | " + "시상구간 : "+ 구간
 
-st.markdown(f'### Meritz Summer Event 진행사항')
+st.markdown(f'### Meritz Summer Event 진행사항  :{close_date}')
 st.markdown(f'{profile}')
 
 st.markdown("---")

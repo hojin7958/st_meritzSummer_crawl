@@ -231,7 +231,7 @@ def return_progress_df(타겟목표):
         return df_TOP300_300
     elif 7000000>타겟목표 >=5000000:
         return df_TOP300_500
-    elif 타겟목표 >7000000:
+    elif 타겟목표 >=7000000:
         return df_TOP300_700
     else:
         return False
@@ -241,7 +241,7 @@ def return_progress_rank(타겟목표):
         return 90
     elif 7000000>타겟목표 >=5000000:
         return 120
-    elif 타겟목표 >7000000:
+    elif 타겟목표 >=7000000:
         return 90
     else:
         return 0
@@ -251,7 +251,7 @@ def return_progress_gubun(타겟목표):
         return "300만"
     elif 7000000>타겟목표 >=5000000:
         return "500만"
-    elif 타겟목표 >7000000:
+    elif 타겟목표 >=7000000:
         return "700만"
     else:
         return "기타"
@@ -263,7 +263,7 @@ def return_gr_df(타겟목표):
         return df_순증_300
     elif 7000000>타겟목표 >=5000000:
         return df_순증_500
-    elif 타겟목표 >7000000:
+    elif 타겟목표 >=7000000:
         return df_순증_700
     else:
         return False
@@ -274,7 +274,7 @@ def return_gr_rank(타겟목표):
         return 60
     elif 7000000>타겟목표 >=5000000:
         return 80
-    elif 타겟목표 >7000000:
+    elif 타겟목표 >=7000000:
         return 60
     else:
         return 0

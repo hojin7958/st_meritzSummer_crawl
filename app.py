@@ -14,6 +14,48 @@ with open('style.css') as f:
 
 
 
+
+### 여기부터는 햄버거 메뉴 없애는 곳들
+
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            [data-testid="collapsedControl"] {
+                display: none
+            }
+            footer {visibility: hidden;}
+             a:link {
+                text-decoration: none;
+            }
+
+            a:visited {
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: none;
+            }
+
+            a:active {
+                text-decoration: none;
+            }
+
+            img {
+            width: 100%; /* takes the 100 % width of its container (.box div)*/
+            height: 100%; /* takes the 100 % height of its container (.box div)*/
+            # border : 1;
+            }
+
+
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
+
+
+
+
+
+
 ### 베이스파일
 
 
@@ -142,6 +184,7 @@ st.sidebar.subheader('Meritz Summer Event')
 
 with st.sidebar:
     st.markdown("---")
+    st.write("데이터업데이트")
     st.write(find_excelfile_mod_date())
 
     st.markdown("---")

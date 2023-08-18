@@ -80,41 +80,41 @@ df = read_df()
 
 @st.cache_data
 def read_df_TOP300_300():
-    return pd.read_excel(file_name, skiprows=3, sheet_name='TOP300_300만↑')
+    return pd.read_excel(file_name, skiprows=3, sheet_name='TOP300_300만')
 df_TOP300_300 = read_df_TOP300_300()
 
 
 @st.cache_data
 def read_df_TOP300_500():
-    return pd.read_excel(file_name, skiprows=3, sheet_name='TOP300_500만↑')
+    return pd.read_excel(file_name, skiprows=3, sheet_name='TOP300_500만')
 
 df_TOP300_500 = read_df_TOP300_500()
 
 
 @st.cache_data
 def read_df_TOP300_700():
-    return pd.read_excel(file_name, skiprows=3, sheet_name='TOP300_700만↑')
+    return pd.read_excel(file_name, skiprows=3, sheet_name='TOP300_700만')
 
 df_TOP300_700 = read_df_TOP300_700()
 
 
 @st.cache_data
 def read_df_gr_300():
-    return pd.read_excel(file_name, skiprows=3, sheet_name='순증_300만↑')
+    return pd.read_excel(file_name, skiprows=3, sheet_name='순증_300만')
 
 df_순증_300 = read_df_gr_300()
 
 
 @st.cache_data
 def read_df_gr_500():
-    return pd.read_excel(file_name, skiprows=3, sheet_name='순증_500만↑')
+    return pd.read_excel(file_name, skiprows=3, sheet_name='순증_500만')
 
 df_순증_500 = read_df_gr_500()
 
 
 @st.cache_data
 def read_df_gr_700():
-    return pd.read_excel(file_name, skiprows=3, sheet_name='순증_700만↑')
+    return pd.read_excel(file_name, skiprows=3, sheet_name='순증_700만')
 
 df_순증_700 = read_df_gr_700()
 
@@ -194,7 +194,7 @@ with st.sidebar:
         if passwd == '7958':
             if st.button("새로고침하기"):
                 # Clears all st.cache_resource caches:
-                st.cache_resource.clear()
+                st.cache_data.clear()
 
             datafile = st.file_uploader("파일을 업로드해주세요",type=['xlsx'])
                         

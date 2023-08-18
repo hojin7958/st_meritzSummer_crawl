@@ -145,9 +145,9 @@ with st.sidebar:
     st.write(find_excelfile_mod_date())
 
     st.markdown("---")
-    passwd = st.text_input("데이터관리비밀번호")
-    if passwd == '7958':
-        with st.sidebar.expander("데이터 업데이트"):
+    with st.sidebar.expander("데이터 업데이트(관리자만)"):
+        passwd = st.text_input("데이터관리비밀번호")
+        if passwd == '7958':
             if st.button("새로고침하기"):
                 # Clears all st.cache_resource caches:
                 st.cache_resource.clear()
@@ -472,7 +472,7 @@ fig.update_traces(
 )
 
 
-
+                                                                     
 # # Find the sales value for 'Clothing'
 highlighted_bar_sales = df_chart2.loc[df_chart2['매니저명'] == highlighted_bar, '순증률'].values[0]
 

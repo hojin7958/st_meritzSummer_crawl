@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import os
 import datetime
-
+import openpyxl
 
 ## 기초
 
@@ -184,6 +184,7 @@ st.sidebar.subheader('Meritz Summer Event')
 
 
 with st.sidebar:
+    close_date = str(20230801)
     st.markdown("---")
     st.write("데이터업데이트")
     st.write(find_excelfile_mod_date())
@@ -207,7 +208,15 @@ with st.sidebar:
             if datafile is not None:
                 file_details = {"FileName":datafile.name,"FileType":datafile.type}
                 save_uploadedfile(datafile)
-                # st.cache_resource.clear()
+
+                @st.cache_data
+                def read_cell_value():
+                    wb = openpyxl.load_workbook(file_name,read_only=True)
+                    sb = wb['SM,AM 시상']
+                    return str(sb['a3'].value)
+                close_date = read_cell_value()
+
+
     st.markdown("---")
 
 
@@ -277,7 +286,7 @@ def return_gr_rank(타겟목표):
 구간 = return_progress_gubun(조건_타겟목표)
 profile = 조건_지점명 + " | " + 조건_매니저명  + " | " + "시상구간 : "+ 구간
 
-st.markdown(f'### Meritz Summer Event 진행사항')
+st.markdown(f'### Meritz Summer Event 진행사항 {close_date}')
 st.markdown(f'{profile}')
 
 st.markdown("---")

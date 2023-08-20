@@ -474,11 +474,12 @@ fig.add_annotation(
     opacity=0.8  # Opacity
 )
 
+fig_config = {'displayModeBar': False}
+
 
 fig.update_yaxes(visible=True, showticklabels=True, )
 
-st.plotly_chart(fig, use_container_width=True)
-
+st.plotly_chart(fig, use_container_width=True, config=fig_config)
 
 
 
@@ -547,4 +548,6 @@ fig.add_annotation(
 
 fig.update_yaxes(visible=True, showticklabels=True, )
 
-st.plotly_chart(fig, use_container_width=True)
+fig_config = {'displayModeBar': False}
+
+st.plotly_chart(fig, use_container_width=True, config=fig_config)

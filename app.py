@@ -16,7 +16,11 @@ chrome_options.add_argument("windows-size=1920x1080")
 chrome_options.add_argument("disable-gpu")
 import time
 import os
+from webdriver_manager.chrome import ChromeDriverManager
 
+@st.experimental_singleton
+def get_driver():
+    return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
 
 
@@ -36,7 +40,7 @@ if clicked:
     # chrome_path = r'C:\Chrome\chromedriver.exe'
     # service = Service(executable_path=chrome_path)
 
-    driver = webdriver.Chrome(options = chrome_options)
+    driver = get_driver()
 
     url = 'https://meritzsummer.streamlit.app'
     driver.get(url)

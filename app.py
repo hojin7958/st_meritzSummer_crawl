@@ -18,11 +18,13 @@ import time
 import os
 from webdriver_manager.chrome import ChromeDriverManager
 
+
+
 @st.experimental_singleton
 def get_driver():
     return webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
-
+driver = get_driver()
 
 
 st.header("이미지파일로 다운로드")
@@ -40,7 +42,7 @@ if clicked:
     # chrome_path = r'C:\Chrome\chromedriver.exe'
     # service = Service(executable_path=chrome_path)
 
-    driver = get_driver()
+    
 
     url = 'https://meritzsummer.streamlit.app'
     driver.get(url)
